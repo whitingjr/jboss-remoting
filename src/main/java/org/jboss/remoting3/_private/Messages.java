@@ -96,8 +96,8 @@ public interface Messages extends BasicLogger {
     @Message(/* id = 210, */value = "Internal Error: received a message with a duplicate ID")
     IOException duplicateMessageIdException();
 
-    @Message(id = 211, value = "Invalid XNIO worker; the worker must match the Remoting Endpoint worker")
-    IllegalArgumentException invalidWorker();
+    @Message(id = 211, value = "Invalid XNIO worker; the worker [%s] must match the Remoting Endpoint worker [%s]")
+    IllegalArgumentException invalidWorker(String worker, String remotingWorker);
 
     @Message(id = 212, value = "Failed to configure SSL context")
     IOException failedToConfigureSslContext(@Cause Throwable cause);

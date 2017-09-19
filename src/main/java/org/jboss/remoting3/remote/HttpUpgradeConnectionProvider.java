@@ -247,7 +247,7 @@ final class HttpUpgradeConnectionProvider extends RemoteConnectionProvider {
 
         public void accept(final StreamConnection channel) {
             if (channel.getWorker() != getXnioWorker()) {
-                throw conn.invalidWorker();
+                throw conn.invalidWorker(channel.getWorker().getName(), getXnioWorker().getName());
             }
 
             try {
